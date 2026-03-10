@@ -1,0 +1,18 @@
+# Ambiente Virtual
+venv/
+.env
+
+# Logs do Scraper
+logs/
+*.log
+
+# Dados Coletados
+data/
+
+# Python Cache e Outros
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/

@@ -54,7 +54,46 @@ Cada CSV contém colunas: `ano`, `municipio`, `uf`, + colunas da tabela de recei
 
 ## Configuração
 
-Edite `config.py` para ajustar:
-- `ANOS` — série histórica (padrão: 2016-2025)
-- `REQUEST_DELAY` — delay entre consultas
-- `CAPTCHA_WAIT_TIMEOUT` — timeout para CAPTCHA
+Edite o arquivo `.env` para ajustar o período de busca da série histórica e a URL base. Para criá-lo pela primeira vez, copie o modelo:
+```bash
+cp .env.example .env
+```
+
+## Como Compartilhar/Instalar em Outro Computador
+
+Para enviar esse robô para outra pessoa usar na máquina dela, siga os seguintes passos:
+
+1. **Compacte os arquivos essenciais num arquivo `.zip`.** Envie apenas estes arquivos:
+   - `scraper.py`
+   - `utils.py`
+   - `config.py`
+   - `requirements.txt`
+   - `README.md`
+   - `.env.example`
+   - *(NÃO envie as pastas `venv/`, `__pycache__/`, `logs/` ou `data/`)*
+
+2. **Na máquina da usuária:**
+   - Ela precisa ter o **Python** (versão 3.10 ou superior) instalado.
+   - Ela precisa extrair a pasta com os arquivos.
+   - Usando o Terminal ou Prompt de Comando dentro da pasta, ela roda os comandos de setup:
+
+   **No Windows:**
+   ```cmd
+   python -m venv venv
+   venv\Scripts\activate
+   pip install -r requirements.txt
+   copy .env.example .env
+   ```
+
+   **No Linux/Mac:**
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   pip install -r requirements.txt
+   cp .env.example .env
+   ```
+
+3. **Pronto!** A partir desse momento ela só precisa abrir o terminal na pasta, ativar o `.env` (passo 2) e rodar o script como você já faz:
+   ```bash
+   python scraper.py --uf AC
+   ```
